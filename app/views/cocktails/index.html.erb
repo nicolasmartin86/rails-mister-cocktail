@@ -1,0 +1,22 @@
+<div class="container">
+<h1>Mister Cocktail - All cocktails</h1>
+  <% @cocktails.each do |cocktail| %>
+  <div class="row">
+    <div class="col-12 d-flex">
+        <div class="col-6">
+          <ul>
+            <li><%= link_to cocktail.name, cocktail_path(cocktail)  %>
+            </li>
+          </ul>
+        </div>
+        <div class="col-6">
+          <%= link_to '<i class="fa fa-trash"></i> Remove cocktail'.html_safe, cocktail_path(cocktail), method: :delete, class: "btn btn-danger"  %>
+        </div>
+    </div>
+  </div>
+  <% end %>
+
+  <hr>
+
+  <%= link_to '<i class="fa fa-plus-circle"></i> Add a cocktail'.html_safe , new_cocktail_path, class: "btn btn-success" %>
+</div>
