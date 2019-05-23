@@ -1,20 +1,19 @@
 <div class="container">
-  <h1><%= @cocktail.name %></h1>
-  <% @cocktail.doses.each do |dose| %>
-    <div class="row">
-      <div class="col-6">
-        <ul>
-          <li><%= dose.description %> - <%= dose.ingredient.name %></li>
-        </ul>
-      </div>
-      <div class="col-6">
-        <%= link_to '<i class="fa fa-trash"></i>'.html_safe, dose_path(dose), method: :delete, class: "btn btn-danger"  %>
-      </div>
+  <div class="card-product">
+    <%= cl_image_tag @cocktail.photo %>
+    <div class="card-product-infos">
+      <h1><%= @cocktail.name %></h1>
+      <% @cocktail.doses.each do |dose| %>
+        <div class="d-flex align-items-center text-center justify-content-between">
+          <p class="mb-0 py-3"><%= dose.description %> - <%= dose.ingredient.name %></p>
+          <%= link_to '<i class="fa fa-trash"></i>'.html_safe, dose_path(dose), method: :delete, class: "btn btn-danger"  %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <% end %>
-      <hr>
-      <%= link_to '<i class="fas fa-glass-martini-alt"></i> Back to cocktails'.html_safe, root_path, class: "btn btn-success" %>
-      <%= link_to '<i class="fas fa-pen"></i> Edit'.html_safe, edit_cocktail_path, class: "btn btn-primary" %>
-      <%= link_to '<i class="fas fa-list-alt"></i> Add an ingredient'.html_safe, new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+  <hr>
+  <%= link_to '<i class="fas fa-glass-martini-alt"></i> Back to cocktails'.html_safe, root_path, class: "btn btn-success" %>
+  <%= link_to '<i class="fas fa-pen"></i> Edit'.html_safe, edit_cocktail_path, class: "btn btn-primary" %>
+  <%= link_to '<i class="fas fa-list-alt"></i> Add an ingredient'.html_safe, new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
 
 </div>

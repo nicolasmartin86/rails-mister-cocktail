@@ -1,10 +1,14 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
+      <h1>Update your cocktail</h1>
       <%= simple_form_for(@cocktail) do |f| %>
         <%= f.input :name %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
         <%= f.submit "Update cocktail", class: "btn btn-success"%>
       <% end %>
+      <hr>
       <%= link_to '<i class="fas fa-glass-martini-alt"></i> Back to cocktails'.html_safe, root_path, class: "btn btn-success" %>
     </div>
   </div>
